@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DOi-Jf-vYz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -37,12 +37,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIz-Tx-W4s">
                                 <rect key="frame" x="164" y="390" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="btnLogIn" destination="BYZ-38-t0r" eventType="touchUpInside" id="TTH-ko-qHC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ue-US-Lci">
                                 <rect key="frame" x="16" y="629" width="343" height="30"/>
@@ -67,6 +70,11 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="txtfMail" destination="Gzx-cI-sQt" id="kLB-Sh-5CN"/>
+                        <outlet property="txtfPass" destination="VnQ-xa-SeG" id="rIP-Cg-AXV"/>
+                        <segue destination="DOi-Jf-vYz" kind="show" identifier="transitionLogIn" id="FM5-Uf-EWD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -95,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNN-Be-6hM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="613.60000000000002" y="1450.5247376311845"/>
+            <point key="canvasLocation" x="1118" y="1373"/>
         </scene>
         <!--Mensages-->
         <scene sceneID="ktW-9w-0m0">
@@ -151,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mKy-cH-AJs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="613.60000000000002" y="689.5052473763119"/>
+            <point key="canvasLocation" x="1118" y="660"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="gw0-jM-ia1">
@@ -169,12 +177,12 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eRh-0d-VtZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-372" y="958"/>
+            <point key="canvasLocation" x="-242" y="626"/>
         </scene>
-        <!--Sing Up-->
+        <!--Sign Up-->
         <scene sceneID="22y-9C-WOV">
             <objects>
-                <viewController id="DeS-6Q-EO7" customClass="VCSingUp" customModule="bloo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="DeS-6Q-EO7" userLabel="Sign Up" customClass="VCSignUp" customModule="bloo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="agI-Lz-P1V"/>
                         <viewControllerLayoutGuide type="bottom" id="5gn-a6-WWG"/>
@@ -201,6 +209,9 @@
                                 <rect key="frame" x="161" y="556" width="53" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="registro"/>
+                                <connections>
+                                    <action selector="btnSignUp" destination="DeS-6Q-EO7" eventType="touchUpInside" id="VVL-5T-k8s"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zse-6O-gfL">
                                 <rect key="frame" x="34" y="28" width="36" height="30"/>
@@ -233,18 +244,25 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hef-or-iqT">
                                 <rect key="frame" x="90" y="289" width="194" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="txtfRegMail" destination="1yT-9v-div" id="PJF-gk-TUF"/>
+                        <outlet property="txtfRegPass" destination="83r-cS-Tpm" id="DuZ-il-I1R"/>
+                        <outlet property="txtfRegReMail" destination="lme-sd-ZL0" id="hvk-at-zPS"/>
+                        <outlet property="txtfRegRePass" destination="Hef-or-iqT" id="0gU-E5-HaY"/>
+                        <segue destination="KcP-IU-jEp" kind="show" identifier="transitionSignUp" id="Pab-De-Xcx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J6R-RL-bas" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -274,7 +292,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="DOi-Jf-vYz" kind="show" id="prp-hl-Bqr"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="aXj-oe-nSk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -286,4 +304,7 @@
             <point key="canvasLocation" x="1540" y="-112.89355322338831"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="aGV-BN-rRC"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		971DAECEDB05771ECDC19253 /* Pods_blooTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA46ADF35ECFC0B51C3AF698 /* Pods_blooTests.framework */; };
-		BA07AB511EAF4CF900AA9414 /* VCSingUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA07AB501EAF4CF900AA9414 /* VCSingUp.swift */; };
+		BA07AB511EAF4CF900AA9414 /* VCSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA07AB501EAF4CF900AA9414 /* VCSignUp.swift */; };
 		BA07AB531EAF52EC00AA9414 /* VCSuccessful.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA07AB521EAF52EC00AA9414 /* VCSuccessful.swift */; };
 		BA07AB551EAF551900AA9414 /* VCInbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA07AB541EAF551900AA9414 /* VCInbox.swift */; };
 		BA07AB571EAF555F00AA9414 /* VCMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA07AB561EAF555F00AA9414 /* VCMap.swift */; };
 		BA07AB591EAF587F00AA9414 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA07AB581EAF587F00AA9414 /* MapKit.framework */; };
+		BA07AB5B1EAF94ED00AA9414 /* DataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA07AB5A1EAF94ED00AA9414 /* DataHolder.swift */; };
+		BA07AB5F1EAF98E200AA9414 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA07AB5E1EAF98E200AA9414 /* GoogleService-Info.plist */; };
 		BA9DF7421EAF317E00945680 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DF7411EAF317E00945680 /* AppDelegate.swift */; };
 		BA9DF7441EAF317E00945680 /* VCLogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DF7431EAF317E00945680 /* VCLogIn.swift */; };
 		BA9DF7471EAF317E00945680 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA9DF7451EAF317E00945680 /* Main.storyboard */; };
@@ -49,11 +51,13 @@
 		68F4625FD0773690316DF52D /* Pods-blooTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blooTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-blooTests/Pods-blooTests.release.xcconfig"; sourceTree = "<group>"; };
 		AA46ADF35ECFC0B51C3AF698 /* Pods_blooTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_blooTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA9A6F7811728E0C8E0A600 /* Pods-bloo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bloo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bloo/Pods-bloo.debug.xcconfig"; sourceTree = "<group>"; };
-		BA07AB501EAF4CF900AA9414 /* VCSingUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSingUp.swift; sourceTree = "<group>"; };
+		BA07AB501EAF4CF900AA9414 /* VCSignUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSignUp.swift; sourceTree = "<group>"; };
 		BA07AB521EAF52EC00AA9414 /* VCSuccessful.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSuccessful.swift; sourceTree = "<group>"; };
 		BA07AB541EAF551900AA9414 /* VCInbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCInbox.swift; sourceTree = "<group>"; };
 		BA07AB561EAF555F00AA9414 /* VCMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMap.swift; sourceTree = "<group>"; };
 		BA07AB581EAF587F00AA9414 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		BA07AB5A1EAF94ED00AA9414 /* DataHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHolder.swift; sourceTree = "<group>"; };
+		BA07AB5E1EAF98E200AA9414 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA9DF73E1EAF317E00945680 /* bloo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bloo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA9DF7411EAF317E00945680 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA9DF7431EAF317E00945680 /* VCLogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCLogIn.swift; sourceTree = "<group>"; };
@@ -138,16 +142,18 @@
 		BA9DF7401EAF317E00945680 /* bloo */ = {
 			isa = PBXGroup;
 			children = (
+				BA07AB5E1EAF98E200AA9414 /* GoogleService-Info.plist */,
 				BA9DF7411EAF317E00945680 /* AppDelegate.swift */,
 				BA9DF7431EAF317E00945680 /* VCLogIn.swift */,
 				BA9DF7451EAF317E00945680 /* Main.storyboard */,
 				BA9DF7481EAF317E00945680 /* Assets.xcassets */,
 				BA9DF74A1EAF317E00945680 /* LaunchScreen.storyboard */,
 				BA9DF74D1EAF317E00945680 /* Info.plist */,
-				BA07AB501EAF4CF900AA9414 /* VCSingUp.swift */,
+				BA07AB501EAF4CF900AA9414 /* VCSignUp.swift */,
 				BA07AB521EAF52EC00AA9414 /* VCSuccessful.swift */,
 				BA07AB541EAF551900AA9414 /* VCInbox.swift */,
 				BA07AB561EAF555F00AA9414 /* VCMap.swift */,
+				BA07AB5A1EAF94ED00AA9414 /* DataHolder.swift */,
 			);
 			path = bloo;
 			sourceTree = "<group>";
@@ -306,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA9DF74C1EAF317E00945680 /* LaunchScreen.storyboard in Resources */,
+				BA07AB5F1EAF98E200AA9414 /* GoogleService-Info.plist in Resources */,
 				BA9DF7491EAF317E00945680 /* Assets.xcassets in Resources */,
 				BA9DF7471EAF317E00945680 /* Main.storyboard in Resources */,
 			);
@@ -472,9 +479,10 @@
 			files = (
 				BA9DF7441EAF317E00945680 /* VCLogIn.swift in Sources */,
 				BA07AB551EAF551900AA9414 /* VCInbox.swift in Sources */,
-				BA07AB511EAF4CF900AA9414 /* VCSingUp.swift in Sources */,
+				BA07AB511EAF4CF900AA9414 /* VCSignUp.swift in Sources */,
 				BA07AB531EAF52EC00AA9414 /* VCSuccessful.swift in Sources */,
 				BA9DF7421EAF317E00945680 /* AppDelegate.swift in Sources */,
+				BA07AB5B1EAF94ED00AA9414 /* DataHolder.swift in Sources */,
 				BA07AB571EAF555F00AA9414 /* VCMap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import FirebaseAuth
 
-class VCSingUp: UIViewController {
+class VCSignUp: UIViewController {
 
+    @IBOutlet var txtfRegMail:UITextField?
+    @IBOutlet var txtfRegReMail:UITextField?
+    @IBOutlet var txtfRegPass:UITextField?
+    @IBOutlet var txtfRegRePass:UITextField?
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +27,28 @@ class VCSingUp: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+// Metodo para el boton registrar
+    
+    
+    @IBAction func btnSignUp() {
+        // Creacion de usuario en FireBase
+        FIRAuth.auth()?.createUser(withEmail: (txtfRegMail?.text)!, password: (txtfRegPass?.text)! ) { (user, error) in
+            
+            if(error == nil){
+                self.performSegue(withIdentifier: "transitionSignUp", sender: self)
+                
+            }else{
+            // Aqui va un error :D
+            }
+            
+      
+        }
+        
+        
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 
