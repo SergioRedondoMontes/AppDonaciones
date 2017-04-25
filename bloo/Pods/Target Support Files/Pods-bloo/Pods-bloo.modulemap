@@ -1,0 +1,6 @@
+framework module Pods_bloo {
+  umbrella header "Pods-bloo-umbrella.h"
+
+  export *
+  module * { export * }
+}

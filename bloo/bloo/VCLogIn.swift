@@ -9,8 +9,9 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import  GoogleSignIn
 
-class VCLogIn: UIViewController {
+class VCLogIn: UIViewController, GIDSignInUIDelegate {
     
 
     @IBOutlet var txtfMail:UITextField?
@@ -20,13 +21,14 @@ class VCLogIn: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+       setudGoogleButtons()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
     
     
@@ -43,8 +45,18 @@ class VCLogIn: UIViewController {
             
             
         }
+    }
+    
+    
+    //crear boton google
+    fileprivate func setudGoogleButtons(){
+        let btnGoogle = GIDSignInButton()
+        btnGoogle.frame = CGRect(x: 16, y:390 + 66, width: view.frame.width - 32, height:50)
+        view.addSubview(btnGoogle)
         
+        GIDSignIn.sharedInstance().uiDelegate = self
         
     }
+    
 }
 
