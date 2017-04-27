@@ -11,18 +11,25 @@ import FirebaseAuth
 import Firebase
 import  GoogleSignIn
 
-class VCLogIn: UIViewController, GIDSignInUIDelegate {
+class VCLogIn: UIViewController, GIDSignInUIDelegate,DataHolderDelegate {
     
 
     @IBOutlet var txtfMail:UITextField?
     @IBOutlet var txtfPass:UITextField?
+    
    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        GIDSignIn.sharedInstance().uiDelegate = self
+       //setupGoogleButtons()
+        DataHolder.sharedInstance.delegate=self
         
-       setudGoogleButtons()
+        
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,16 +54,10 @@ class VCLogIn: UIViewController, GIDSignInUIDelegate {
         }
     }
     
-    
-    //crear boton google
-    fileprivate func setudGoogleButtons(){
-        let btnGoogle = GIDSignInButton()
-        btnGoogle.frame = CGRect(x: 16, y:390 + 66, width: view.frame.width - 32, height:50)
-        view.addSubview(btnGoogle)
-        
-        GIDSignIn.sharedInstance().uiDelegate = self
-        
+    func DataHolderUserYaLogeado(user: FIRUser) {
+        self.performSegue(withIdentifier: "transitionLogIn", sender: self)
     }
     
+
 }
 

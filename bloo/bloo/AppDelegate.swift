@@ -29,7 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
+        print("GOOGLE LOGEADO AHORA PASO A LOGEARME EN FIREBASE!!! ")
+        
         if let error = error {
+            print("ERROR!!! ",error)
             // ...
             return
         }
@@ -41,15 +44,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
             if let error = error {
+                print("ERROR!!! ",error)
                 // ...
+                
             }
+            print("ESTOY LOGEADO!!!!")
         })
     }
     
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        
         return GIDSignIn.sharedInstance().handle(url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String! ,
                                                  annotation: options[UIApplicationOpenURLOptionsKey.annotation])
     }
+
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
