@@ -9,24 +9,33 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import  GoogleSignIn
 
-class VCLogIn: UIViewController {
+class VCLogIn: UIViewController, GIDSignInUIDelegate,DataHolderDelegate {
     
 
     @IBOutlet var txtfMail:UITextField?
     @IBOutlet var txtfPass:UITextField?
+    
    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        GIDSignIn.sharedInstance().uiDelegate = self
+       //setupGoogleButtons()
+        DataHolder.sharedInstance.delegate=self
+        
+        
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
     
     
@@ -43,8 +52,12 @@ class VCLogIn: UIViewController {
             
             
         }
-        
-        
     }
+    
+    func DataHolderUserYaLogeado(user: FIRUser) {
+        self.performSegue(withIdentifier: "transitionLogIn", sender: self)
+    }
+    
+
 }
 
