@@ -305,7 +305,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="DeS-6Q-EO7" id="ein-fE-Tr4"/>
                                 </connections>
@@ -314,6 +314,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="txtAge" destination="a0u-cI-7Qu" id="JBM-b7-Tbi"/>
                         <outlet property="txtfRegMail" destination="1yT-9v-div" id="PJF-gk-TUF"/>
                         <outlet property="txtfRegPass" destination="83r-cS-Tpm" id="DuZ-il-I1R"/>
                         <outlet property="viewAger" destination="YQ9-vv-9if" id="jFH-Dx-GfY"/>

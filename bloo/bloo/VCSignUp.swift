@@ -14,7 +14,7 @@ class VCSignUp: UIViewController,UITextFieldDelegate {
 
     @IBOutlet var txtfRegMail:UITextField?
     @IBOutlet var txtfRegPass:UITextField?
-    @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var txtAge: UITextField!
     @IBOutlet var viewAger:ViewAger?
     
     var estado1:CGRect?
@@ -78,6 +78,10 @@ class VCSignUp: UIViewController,UITextFieldDelegate {
         UIView.animate(withDuration: 0.4, delay: 0.05, options: UIViewAnimationOptions.curveEaseIn, animations:{ () -> Void in
             
             self.viewAger?.frame = self.estado1!
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd MMM, yyyy"
+            self.txtAge.text = dateFormatter.string(from: (self.viewAger?.uiDatePicker?.date)!)
+            
             
         }
             , completion: { (finished) -> Void in

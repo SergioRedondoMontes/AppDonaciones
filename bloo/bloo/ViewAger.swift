@@ -12,6 +12,7 @@ class ViewAger: UIView {
 
     
     @IBOutlet var btnDone:UIButton?
+    @IBOutlet var uiDatePicker:UIDatePicker?
     
     /*
     // Only override draw() if you perform custom drawing.

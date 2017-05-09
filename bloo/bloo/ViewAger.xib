@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewAger" customModule="bloo" customModuleProvider="target">
             <connections>
                 <outlet property="btnDone" destination="Jdh-on-Von" id="Q8C-r7-PSI"/>
+                <outlet property="uiDatePicker" destination="c3D-9K-S8z" id="SVW-qf-LmO"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
