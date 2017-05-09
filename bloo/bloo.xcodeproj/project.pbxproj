@@ -15,6 +15,10 @@
 		BA07AB591EAF587F00AA9414 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA07AB581EAF587F00AA9414 /* MapKit.framework */; };
 		BA07AB5B1EAF94ED00AA9414 /* DataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA07AB5A1EAF94ED00AA9414 /* DataHolder.swift */; };
 		BA07AB5F1EAF98E200AA9414 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA07AB5E1EAF98E200AA9414 /* GoogleService-Info.plist */; };
+		BA0EB4301EB1E5B800B9D204 /* VCConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0EB42F1EB1E5B800B9D204 /* VCConfig.swift */; };
+		BA636B041EBB4CED004F3FB0 /* VCAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA636B031EBB4CED004F3FB0 /* VCAdmin.swift */; };
+		BA636B081EC1C581004F3FB0 /* ViewAger.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA636B071EC1C581004F3FB0 /* ViewAger.xib */; };
+		BA636B0A1EC1C672004F3FB0 /* ViewAger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA636B091EC1C672004F3FB0 /* ViewAger.swift */; };
 		BA9DF7421EAF317E00945680 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DF7411EAF317E00945680 /* AppDelegate.swift */; };
 		BA9DF7441EAF317E00945680 /* VCLogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DF7431EAF317E00945680 /* VCLogIn.swift */; };
 		BA9DF7471EAF317E00945680 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA9DF7451EAF317E00945680 /* Main.storyboard */; };
@@ -58,6 +62,10 @@
 		BA07AB581EAF587F00AA9414 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BA07AB5A1EAF94ED00AA9414 /* DataHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHolder.swift; sourceTree = "<group>"; };
 		BA07AB5E1EAF98E200AA9414 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BA0EB42F1EB1E5B800B9D204 /* VCConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCConfig.swift; sourceTree = "<group>"; };
+		BA636B031EBB4CED004F3FB0 /* VCAdmin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCAdmin.swift; sourceTree = "<group>"; };
+		BA636B071EC1C581004F3FB0 /* ViewAger.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewAger.xib; sourceTree = "<group>"; };
+		BA636B091EC1C672004F3FB0 /* ViewAger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAger.swift; sourceTree = "<group>"; };
 		BA9DF73E1EAF317E00945680 /* bloo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bloo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA9DF7411EAF317E00945680 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA9DF7431EAF317E00945680 /* VCLogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCLogIn.swift; sourceTree = "<group>"; };
@@ -146,6 +154,7 @@
 				BA9DF7411EAF317E00945680 /* AppDelegate.swift */,
 				BA9DF7431EAF317E00945680 /* VCLogIn.swift */,
 				BA9DF7451EAF317E00945680 /* Main.storyboard */,
+				BA0EB42F1EB1E5B800B9D204 /* VCConfig.swift */,
 				BA9DF7481EAF317E00945680 /* Assets.xcassets */,
 				BA9DF74A1EAF317E00945680 /* LaunchScreen.storyboard */,
 				BA9DF74D1EAF317E00945680 /* Info.plist */,
@@ -154,6 +163,9 @@
 				BA07AB541EAF551900AA9414 /* VCInbox.swift */,
 				BA07AB561EAF555F00AA9414 /* VCMap.swift */,
 				BA07AB5A1EAF94ED00AA9414 /* DataHolder.swift */,
+				BA636B031EBB4CED004F3FB0 /* VCAdmin.swift */,
+				BA636B071EC1C581004F3FB0 /* ViewAger.xib */,
+				BA636B091EC1C672004F3FB0 /* ViewAger.swift */,
 			);
 			path = bloo;
 			sourceTree = "<group>";
@@ -315,6 +327,7 @@
 				BA07AB5F1EAF98E200AA9414 /* GoogleService-Info.plist in Resources */,
 				BA9DF7491EAF317E00945680 /* Assets.xcassets in Resources */,
 				BA9DF7471EAF317E00945680 /* Main.storyboard in Resources */,
+				BA636B081EC1C581004F3FB0 /* ViewAger.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,7 +490,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA0EB4301EB1E5B800B9D204 /* VCConfig.swift in Sources */,
 				BA9DF7441EAF317E00945680 /* VCLogIn.swift in Sources */,
+				BA636B041EBB4CED004F3FB0 /* VCAdmin.swift in Sources */,
+				BA636B0A1EC1C672004F3FB0 /* ViewAger.swift in Sources */,
 				BA07AB551EAF551900AA9414 /* VCInbox.swift in Sources */,
 				BA07AB511EAF4CF900AA9414 /* VCSignUp.swift in Sources */,
 				BA07AB531EAF52EC00AA9414 /* VCSuccessful.swift in Sources */,

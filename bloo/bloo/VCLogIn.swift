@@ -23,7 +23,7 @@ class VCLogIn: UIViewController, GIDSignInUIDelegate,DataHolderDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         GIDSignIn.sharedInstance().uiDelegate = self
-       //setupGoogleButtons()
+       
         DataHolder.sharedInstance.delegate=self
         
         
@@ -40,10 +40,13 @@ class VCLogIn: UIViewController, GIDSignInUIDelegate,DataHolderDelegate {
     
     
     @IBAction func btnLogIn() {
+       
         // Inicio de sesion en FireBase
         FIRAuth.auth()?.signIn(withEmail: (txtfMail?.text)!, password: (txtfPass?.text)!) { (user, error) in
             
             if(error == nil){
+                
+                                
                 self.performSegue(withIdentifier: "transitionLogIn", sender: self)
                 
             }else{
@@ -54,7 +57,7 @@ class VCLogIn: UIViewController, GIDSignInUIDelegate,DataHolderDelegate {
         }
     }
     
-    func DataHolderUserYaLogeado(user: FIRUser) {
+    func DataHolderUserLogIn(user: FIRUser) {
         self.performSegue(withIdentifier: "transitionLogIn", sender: self)
     }
     
