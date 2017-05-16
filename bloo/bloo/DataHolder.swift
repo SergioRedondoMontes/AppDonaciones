@@ -8,23 +8,26 @@
 
 import UIKit
 import  Firebase
+import FirebaseStorage
 
 class DataHolder: NSObject {
     
     var delegate:DataHolderDelegate?
     
     static let sharedInstance:DataHolder=DataHolder()
-    var miUsuarioAuth:FIRUser?
+    var userAuth:FIRUser?
+    var firDataBaseRef: FIRDatabaseReference!
     
     func initFireBase(){
         FIRApp.configure()
+        firDataBaseRef = FIRDatabase.database().reference()
         
         FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
             if let user = user {
                 // User is signed in.
-                DataHolder.sharedInstance.miUsuarioAuth=user
+                DataHolder.sharedInstance.userAuth=user
                 print("USER LOGEADO CON",user.email!)
-                self.delegate?.DataHolderUserYaLogeado(user: user)
+                self.delegate?.DataHolderUserLogIn(user: user)
             } else {
                 // No user is signed in.
             }
@@ -34,5 +37,5 @@ class DataHolder: NSObject {
 }
 
 protocol DataHolderDelegate {
-    func DataHolderUserYaLogeado(user:FIRUser)
+    func DataHolderUserLogIn(user:FIRUser)
 }

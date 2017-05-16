@@ -8,18 +8,27 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
 
-class VCSignUp: UIViewController {
+class VCSignUp: UIViewController,UITextFieldDelegate {
 
     @IBOutlet var txtfRegMail:UITextField?
-    @IBOutlet var txtfRegReMail:UITextField?
     @IBOutlet var txtfRegPass:UITextField?
-    @IBOutlet var txtfRegRePass:UITextField?
+    @IBOutlet weak var txtAge: UITextField!
+    @IBOutlet var viewAger:ViewAger?
+    
+    var estado1:CGRect?
+    var estado2:CGRect?
    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        estado1=viewAger?.frame
+        estado2=viewAger?.frame
+        estado2?.origin.y=(estado1?.origin.y)! - (estado1?.size.height)!
         // Do any additional setup after loading the view.
+    
+        viewAger?.btnDone?.addTarget(self, action: #selector(self.pressedBtnDone), for: .touchUpInside)
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,7 +44,11 @@ class VCSignUp: UIViewController {
         FIRAuth.auth()?.createUser(withEmail: (txtfRegMail?.text)!, password: (txtfRegPass?.text)! ) { (user, error) in
             
             if(error == nil){
+                
+                FIRDatabase.database().reference().child("profiles").child((user?.uid)!).child("mail").setValue(user?.email)
+                FIRDatabase.database().reference().child("profiles").child((user?.uid)!).child("age").setValue("0")
                 self.performSegue(withIdentifier: "transitionSignUp", sender: self)
+                
                 
             }else{
             // Aqui va un error :D
@@ -45,6 +58,35 @@ class VCSignUp: UIViewController {
         }
         
         
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        viewAger?.frame = estado1!
+        UIView.animate(withDuration: 0.4, delay: 0.05, options: UIViewAnimationOptions.curveEaseIn, animations:{ () -> Void in
+            
+            self.viewAger?.frame = self.estado2!
+            
+        }
+            , completion: { (finished) -> Void in
+                
+        })
+    }
+
+    
+    func pressedBtnDone(sender: UIButton!) {
+        viewAger?.frame = estado2!
+        UIView.animate(withDuration: 0.4, delay: 0.05, options: UIViewAnimationOptions.curveEaseIn, animations:{ () -> Void in
+            
+            self.viewAger?.frame = self.estado1!
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd MMM, yyyy"
+            self.txtAge.text = dateFormatter.string(from: (self.viewAger?.uiDatePicker?.date)!)
+            
+            
+        }
+            , completion: { (finished) -> Void in
+                
+        })
     }
     
     
