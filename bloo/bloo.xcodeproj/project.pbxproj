@@ -66,6 +66,7 @@
 		BA636B031EBB4CED004F3FB0 /* VCAdmin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCAdmin.swift; sourceTree = "<group>"; };
 		BA636B071EC1C581004F3FB0 /* ViewAger.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewAger.xib; sourceTree = "<group>"; };
 		BA636B091EC1C672004F3FB0 /* ViewAger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAger.swift; sourceTree = "<group>"; };
+		BA7D33D61ECD8231006A1591 /* bloo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = bloo.entitlements; sourceTree = "<group>"; };
 		BA9DF73E1EAF317E00945680 /* bloo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bloo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA9DF7411EAF317E00945680 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA9DF7431EAF317E00945680 /* VCLogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCLogIn.swift; sourceTree = "<group>"; };
@@ -150,6 +151,7 @@
 		BA9DF7401EAF317E00945680 /* bloo */ = {
 			isa = PBXGroup;
 			children = (
+				BA7D33D61ECD8231006A1591 /* bloo.entitlements */,
 				BA07AB5E1EAF98E200AA9414 /* GoogleService-Info.plist */,
 				BA9DF7411EAF317E00945680 /* AppDelegate.swift */,
 				BA9DF7431EAF317E00945680 /* VCLogIn.swift */,
@@ -279,7 +281,13 @@
 						DevelopmentTeam = 86CZ52Y2CQ;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -654,6 +662,7 @@
 			baseConfigurationReference = ACA9A6F7811728E0C8E0A600 /* Pods-bloo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = bloo/bloo.entitlements;
 				DEVELOPMENT_TEAM = 86CZ52Y2CQ;
 				INFOPLIST_FILE = bloo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -668,6 +677,7 @@
 			baseConfigurationReference = 0A0E821642503BDE16ABBB82 /* Pods-bloo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = bloo/bloo.entitlements;
 				DEVELOPMENT_TEAM = 86CZ52Y2CQ;
 				INFOPLIST_FILE = bloo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
