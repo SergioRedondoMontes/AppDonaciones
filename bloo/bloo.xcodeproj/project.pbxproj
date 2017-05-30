@@ -16,6 +16,7 @@
 		BA07AB5B1EAF94ED00AA9414 /* DataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA07AB5A1EAF94ED00AA9414 /* DataHolder.swift */; };
 		BA07AB5F1EAF98E200AA9414 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA07AB5E1EAF98E200AA9414 /* GoogleService-Info.plist */; };
 		BA0EB4301EB1E5B800B9D204 /* VCConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0EB42F1EB1E5B800B9D204 /* VCConfig.swift */; };
+		BA3130EC1ED6FEEB00CCC0E9 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3130EB1ED6FEEB00CCC0E9 /* Profile.swift */; };
 		BA636B041EBB4CED004F3FB0 /* VCAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA636B031EBB4CED004F3FB0 /* VCAdmin.swift */; };
 		BA636B081EC1C581004F3FB0 /* ViewAger.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA636B071EC1C581004F3FB0 /* ViewAger.xib */; };
 		BA636B0A1EC1C672004F3FB0 /* ViewAger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA636B091EC1C672004F3FB0 /* ViewAger.swift */; };
@@ -63,6 +64,7 @@
 		BA07AB5A1EAF94ED00AA9414 /* DataHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHolder.swift; sourceTree = "<group>"; };
 		BA07AB5E1EAF98E200AA9414 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA0EB42F1EB1E5B800B9D204 /* VCConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCConfig.swift; sourceTree = "<group>"; };
+		BA3130EB1ED6FEEB00CCC0E9 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		BA636B031EBB4CED004F3FB0 /* VCAdmin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCAdmin.swift; sourceTree = "<group>"; };
 		BA636B071EC1C581004F3FB0 /* ViewAger.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewAger.xib; sourceTree = "<group>"; };
 		BA636B091EC1C672004F3FB0 /* ViewAger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAger.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				BA636B031EBB4CED004F3FB0 /* VCAdmin.swift */,
 				BA636B071EC1C581004F3FB0 /* ViewAger.xib */,
 				BA636B091EC1C672004F3FB0 /* ViewAger.swift */,
+				BA3130EB1ED6FEEB00CCC0E9 /* Profile.swift */,
 			);
 			path = bloo;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				BA07AB511EAF4CF900AA9414 /* VCSignUp.swift in Sources */,
 				BA07AB531EAF52EC00AA9414 /* VCSuccessful.swift in Sources */,
 				BA9DF7421EAF317E00945680 /* AppDelegate.swift in Sources */,
+				BA3130EC1ED6FEEB00CCC0E9 /* Profile.swift in Sources */,
 				BA07AB5B1EAF94ED00AA9414 /* DataHolder.swift in Sources */,
 				BA07AB571EAF555F00AA9414 /* VCMap.swift in Sources */,
 			);
@@ -665,6 +669,7 @@
 				CODE_SIGN_ENTITLEMENTS = bloo/bloo.entitlements;
 				DEVELOPMENT_TEAM = 86CZ52Y2CQ;
 				INFOPLIST_FILE = bloo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = appBloo.bloo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -680,6 +685,7 @@
 				CODE_SIGN_ENTITLEMENTS = bloo/bloo.entitlements;
 				DEVELOPMENT_TEAM = 86CZ52Y2CQ;
 				INFOPLIST_FILE = bloo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = appBloo.bloo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

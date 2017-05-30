@@ -46,8 +46,8 @@ class VCLogIn: UIViewController, GIDSignInUIDelegate,DataHolderDelegate {
             
             if(error == nil){
                 
-                                
-                self.performSegue(withIdentifier: "transitionLogIn", sender: self)
+                  self.loadProfile(userID: (user?.uid)!)
+                //self.performSegue(withIdentifier: "transitionLogIn", sender: self)
                 
             }else{
                 // Aqui va un error :D
@@ -58,7 +58,45 @@ class VCLogIn: UIViewController, GIDSignInUIDelegate,DataHolderDelegate {
     }
     
     func DataHolderUserLogIn(user: FIRUser) {
-        self.performSegue(withIdentifier: "transitionLogIn", sender: self)
+        //self.performSegue(withIdentifier: "transitionLogIn", sender: self)
+        self.loadProfile(userID: (user.uid))
+    }
+    
+    func loadProfile(userID:String)  {
+        
+        DataHolder.sharedInstance.firDataBaseRef.child("profiles").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            //let value = snapshot.value as? NSDictionary
+            //let username = value?["username"] as? String ?? ""
+            //let user = User.init(username: username)
+            print("USER ID: ",userID)
+            
+            
+            DataHolder.sharedInstance.miPerflie = Profile(valores: snapshot.value as! [String : Any])
+            
+            if(DataHolder.sharedInstance.miPerflie?.tokenPush==nil){
+                print("************************************************************INSERT!!! ",DataHolder.sharedInstance.miPerflie?.tokenPush)
+                DataHolder.sharedInstance.miPerflie?.tokenPush = DataHolder.sharedInstance.tokenUser
+                
+                if(DataHolder.sharedInstance.miPerflie?.tokenPush==nil){
+                    
+                    
+                }
+                else{
+                    DataHolder.sharedInstance.firDataBaseRef.child("profiles").child(userID).child("tokenPush").setValue(DataHolder.sharedInstance.miPerflie?.tokenPush)
+                }
+                
+                
+                
+                
+            }
+            
+            self.performSegue(withIdentifier: "transitionLogIn", sender: self)
+            
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
     
 
