@@ -78,15 +78,17 @@ class VCLogIn: UIViewController, GIDSignInUIDelegate,DataHolderDelegate {
                     //print("************************************************************INSERT!!! ",DataHolder.sharedInstance.miPerflie?.tokenPush!)
                     DataHolder.sharedInstance.miPerflie?.tokenPush = DataHolder.sharedInstance.tokenUser
                     
-                    if(DataHolder.sharedInstance.miPerflie?.tokenPush==nil){
+                    /*if(DataHolder.sharedInstance.miPerflie?.tokenPush==nil){
                         
                         
                     }
                     else{
                         DataHolder.sharedInstance.firDataBaseRef.child("profiles").child(userID).child("tokenPush").setValue(DataHolder.sharedInstance.miPerflie?.tokenPush)
-                    }
+                    }*/
                     
                 }
+                DataHolder.sharedInstance.firDataBaseRef.child("profiles").child(userID).child("tokenPush").setValue(DataHolder.sharedInstance.miPerflie?.tokenPush)
+                
                 if(DataHolder.sharedInstance.miPerflie?.rol == "1"){
                     print("++++++++++++++++++++++ADMIN++++++++++++++")
                     self.performSegue(withIdentifier: "transitionAdmin", sender: self)
