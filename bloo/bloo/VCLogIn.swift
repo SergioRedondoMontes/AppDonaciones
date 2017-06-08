@@ -42,7 +42,7 @@ class VCLogIn: UIViewController, GIDSignInUIDelegate,DataHolderDelegate {
     @IBAction func btnLogIn() {
        
         // Inicio de sesion en FireBase
-        FIRAuth.auth()?.signIn(withEmail: (txtfMail?.text)!, password: (txtfPass?.text)!) { (user, error) in
+        Auth.auth().signIn(withEmail: (txtfMail?.text)!, password: (txtfPass?.text)!) { (user, error) in
             
             if(error == nil){
                 
@@ -57,7 +57,7 @@ class VCLogIn: UIViewController, GIDSignInUIDelegate,DataHolderDelegate {
         }
     }
     
-    func DataHolderUserLogIn(user: FIRUser) {
+    func DataHolderUserLogIn(user: User) {
         //self.performSegue(withIdentifier: "transitionLogIn", sender: self)
         self.loadProfile(userID: (user.uid))
     }
@@ -100,10 +100,10 @@ class VCLogIn: UIViewController, GIDSignInUIDelegate,DataHolderDelegate {
             else{
                 //CREAMOS EL PERFIL !!!!!
                 let googleMail = DataHolder.sharedInstance.googleMail
-                FIRDatabase.database().reference().child("profiles").child(userID).child("mail").setValue(googleMail)
-                FIRDatabase.database().reference().child("profiles").child(userID).child("age").setValue("0")
+                Database.database().reference().child("profiles").child(userID).child("mail").setValue(googleMail)
+                Database.database().reference().child("profiles").child(userID).child("age").setValue("0")
                 //adminRol = 1; userRol = 0;
-                FIRDatabase.database().reference().child("profiles").child(userID).child("rol").setValue("0")
+                Database.database().reference().child("profiles").child(userID).child("rol").setValue("0")
                 DataHolder.sharedInstance.firDataBaseRef.child("profiles").child(userID).child("tokenPush").setValue(DataHolder.sharedInstance.miPerflie?.tokenPush)
                 self.performSegue(withIdentifier: "transitionLogIn", sender: self)
             }

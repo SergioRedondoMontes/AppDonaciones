@@ -36,10 +36,10 @@ class VCAdmin: UIViewController {
     
     @IBAction func LogOut(){
         
-        let firebaseAuth = FIRAuth.auth()
+        let firebaseAuth = Auth.auth()
         do {
             try
-                firebaseAuth?.signOut()
+                firebaseAuth.signOut()
             GIDSignIn.sharedInstance().signOut()
             // falta hacer la tansicion !!!!!! IMPORTANTE!!!!!!!!!!
             performSegue(withIdentifier: "transitionLogOutAdmin", sender: self)

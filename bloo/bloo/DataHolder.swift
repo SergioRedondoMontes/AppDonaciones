@@ -18,16 +18,16 @@ class DataHolder: NSObject {
     var delegate:DataHolderDelegate?
     
     static let sharedInstance:DataHolder=DataHolder()
-    var userAuth:FIRUser?
-    var firDataBaseRef: FIRDatabaseReference!
+    var userAuth:User?
+    var firDataBaseRef: DatabaseReference!
     
     var miPerflie:Profile?
     
     func initFireBase(){
-        FIRApp.configure()
-        firDataBaseRef = FIRDatabase.database().reference()
+        FirebaseApp.configure()
+        firDataBaseRef = Database.database().reference()
         
-        FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
+        Auth.auth().addStateDidChangeListener() { (auth, user) in
             if let user = user {
                 // User is signed in.
                 DataHolder.sharedInstance.userAuth=user
@@ -50,5 +50,5 @@ class DataHolder: NSObject {
 }
 
 protocol DataHolderDelegate {
-    func DataHolderUserLogIn(user:FIRUser)
+    func DataHolderUserLogIn(user:User)
 }

@@ -41,14 +41,14 @@ class VCSignUp: UIViewController,UITextFieldDelegate {
     
     @IBAction func btnSignUp() {
         // Creacion de usuario en FireBase
-        FIRAuth.auth()?.createUser(withEmail: (txtfRegMail?.text)!, password: (txtfRegPass?.text)! ) { (user, error) in
+        Auth.auth().createUser(withEmail: (txtfRegMail?.text)!, password: (txtfRegPass?.text)! ) { (user, error) in
             
             if(error == nil){
                 
-                FIRDatabase.database().reference().child("profiles").child((user?.uid)!).child("mail").setValue(user?.email)
-                FIRDatabase.database().reference().child("profiles").child((user?.uid)!).child("age").setValue("0")
+                Database.database().reference().child("profiles").child((user?.uid)!).child("mail").setValue(user?.email)
+                Database.database().reference().child("profiles").child((user?.uid)!).child("age").setValue("0")
                 //adminRol = 1; userRol = 0;
-                FIRDatabase.database().reference().child("profiles").child((user?.uid)!).child("rol").setValue("0")
+                Database.database().reference().child("profiles").child((user?.uid)!).child("rol").setValue("0")
                 DataHolder.sharedInstance.miPerflie?.tokenPush = DataHolder.sharedInstance.tokenUser
                 
                 if(DataHolder.sharedInstance.miPerflie?.tokenPush==nil){
