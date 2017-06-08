@@ -22,7 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
- 
+        
+        //Bateria blanca
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
         //Push notification
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
@@ -49,13 +51,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
 
+        //FIRMessaging.messaging().
         
         return true
     }
     
-    func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
-        print(remoteMessage.appData)
+    //PRUEBAS
+    func initNotificationSetupCheck() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert])
+        { (success, error) in
+            if success {
+                print("Permission Granted")
+            } else {
+                print("There was a problem!")
+            }
+        }
     }
+    
+    
+    
+    
+    
+    
+    // HASTA AQUI
+    
+    func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
+        print("-------------------->",remoteMessage.appData)
+    }
+    
+    
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+        // Print message ID.
+        
+        print("AAAAAAAAAAAAAAAAAAAAAA ",userInfo)
+        
+        if let messageID = userInfo[gcmMessageIDKey] {
+            print("Message ID: \(messageID)")
+        }
+        
+        // Print full message.
+        print(userInfo)
+        
+        
+    }
+    // [END receive_message]
     
     
    
@@ -85,6 +129,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                 // ...
                 
             }
+            DataHolder.sharedInstance.googleMail=user?.email!
+            print("++++++++++++++++++++++++++++++++++++++", user?.email!)
             print("ESTOY LOGEADO!!!!")
         })
     }

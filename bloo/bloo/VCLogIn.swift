@@ -71,27 +71,42 @@ class VCLogIn: UIViewController, GIDSignInUIDelegate,DataHolderDelegate {
             //let user = User.init(username: username)
             print("USER ID: ",userID)
             
-            
-            DataHolder.sharedInstance.miPerflie = Profile(valores: snapshot.value as! [String : Any])
-            
-            if(DataHolder.sharedInstance.miPerflie?.tokenPush==nil){
-                print("************************************************************INSERT!!! ",DataHolder.sharedInstance.miPerflie?.tokenPush)
-                DataHolder.sharedInstance.miPerflie?.tokenPush = DataHolder.sharedInstance.tokenUser
+            if(snapshot.exists()){
+                DataHolder.sharedInstance.miPerflie = Profile(valores: snapshot.value as! [String : Any])
                 
                 if(DataHolder.sharedInstance.miPerflie?.tokenPush==nil){
+                    //print("************************************************************INSERT!!! ",DataHolder.sharedInstance.miPerflie?.tokenPush!)
+                    DataHolder.sharedInstance.miPerflie?.tokenPush = DataHolder.sharedInstance.tokenUser
                     
+                    if(DataHolder.sharedInstance.miPerflie?.tokenPush==nil){
+                        
+                        
+                    }
+                    else{
+                        DataHolder.sharedInstance.firDataBaseRef.child("profiles").child(userID).child("tokenPush").setValue(DataHolder.sharedInstance.miPerflie?.tokenPush)
+                    }
                     
                 }
-                else{
-                    DataHolder.sharedInstance.firDataBaseRef.child("profiles").child(userID).child("tokenPush").setValue(DataHolder.sharedInstance.miPerflie?.tokenPush)
-                }
+                if(DataHolder.sharedInstance.miPerflie?.rol == "1"){
+                    print("++++++++++++++++++++++ADMIN++++++++++++++")
+                    self.performSegue(withIdentifier: "transitionAdmin", sender: self)
+                 }else{
+                    self.performSegue(withIdentifier: "transitionLogIn", sender: self)
+                 }
                 
-                
-                
+                print("-------------------",DataHolder.sharedInstance.miPerflie?.rol!)
                 
             }
-            
-            self.performSegue(withIdentifier: "transitionLogIn", sender: self)
+            else{
+                //CREAMOS EL PERFIL !!!!!
+                let googleMail = DataHolder.sharedInstance.googleMail
+                FIRDatabase.database().reference().child("profiles").child(userID).child("mail").setValue(googleMail)
+                FIRDatabase.database().reference().child("profiles").child(userID).child("age").setValue("0")
+                //adminRol = 1; userRol = 0;
+                FIRDatabase.database().reference().child("profiles").child(userID).child("rol").setValue("0")
+                DataHolder.sharedInstance.firDataBaseRef.child("profiles").child(userID).child("tokenPush").setValue(DataHolder.sharedInstance.miPerflie?.tokenPush)
+                self.performSegue(withIdentifier: "transitionLogIn", sender: self)
+            }
             
             // ...
         }) { (error) in

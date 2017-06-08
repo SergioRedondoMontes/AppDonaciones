@@ -13,6 +13,7 @@ import FirebaseStorage
 class DataHolder: NSObject {
     
     var tokenUser:String?
+    var googleMail:String?
     
     var delegate:DataHolderDelegate?
     
@@ -44,6 +45,7 @@ class DataHolder: NSObject {
             }
         }
     }
+    
     
 }
 

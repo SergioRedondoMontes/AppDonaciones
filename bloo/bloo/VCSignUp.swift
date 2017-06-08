@@ -47,6 +47,8 @@ class VCSignUp: UIViewController,UITextFieldDelegate {
                 
                 FIRDatabase.database().reference().child("profiles").child((user?.uid)!).child("mail").setValue(user?.email)
                 FIRDatabase.database().reference().child("profiles").child((user?.uid)!).child("age").setValue("0")
+                //adminRol = 1; userRol = 0;
+                FIRDatabase.database().reference().child("profiles").child((user?.uid)!).child("rol").setValue("0")
                 DataHolder.sharedInstance.miPerflie?.tokenPush = DataHolder.sharedInstance.tokenUser
                 
                 if(DataHolder.sharedInstance.miPerflie?.tokenPush==nil){

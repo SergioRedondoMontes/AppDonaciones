@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import GoogleSignIn
 
 class VCAdmin: UIViewController {
 
@@ -31,5 +33,20 @@ class VCAdmin: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func LogOut(){
+        
+        let firebaseAuth = FIRAuth.auth()
+        do {
+            try
+                firebaseAuth?.signOut()
+            GIDSignIn.sharedInstance().signOut()
+            // falta hacer la tansicion !!!!!! IMPORTANTE!!!!!!!!!!
+            performSegue(withIdentifier: "transitionLogOutAdmin", sender: self)
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
+    }
 
 }
