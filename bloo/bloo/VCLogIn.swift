@@ -74,9 +74,8 @@ class VCLogIn: UIViewController, GIDSignInUIDelegate,DataHolderDelegate {
             if(snapshot.exists()){
                 DataHolder.sharedInstance.miPerflie = Profile(valores: snapshot.value as! [String : Any])
                 
-                if(DataHolder.sharedInstance.miPerflie?.tokenPush==nil){
+                if(DataHolder.sharedInstance.miPerflie?.tokenPush==DataHolder.sharedInstance.tokenUser){
                     //print("************************************************************INSERT!!! ",DataHolder.sharedInstance.miPerflie?.tokenPush!)
-                    DataHolder.sharedInstance.miPerflie?.tokenPush = DataHolder.sharedInstance.tokenUser
                     
                     /*if(DataHolder.sharedInstance.miPerflie?.tokenPush==nil){
                         
@@ -86,6 +85,9 @@ class VCLogIn: UIViewController, GIDSignInUIDelegate,DataHolderDelegate {
                         DataHolder.sharedInstance.firDataBaseRef.child("profiles").child(userID).child("tokenPush").setValue(DataHolder.sharedInstance.miPerflie?.tokenPush)
                     }*/
                     
+                }else{
+                    DataHolder.sharedInstance.miPerflie?.tokenPush = DataHolder.sharedInstance.tokenUser
+
                 }
                 DataHolder.sharedInstance.firDataBaseRef.child("profiles").child(userID).child("tokenPush").setValue(DataHolder.sharedInstance.miPerflie?.tokenPush)
                 
