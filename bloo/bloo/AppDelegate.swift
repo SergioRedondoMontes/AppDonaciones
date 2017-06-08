@@ -54,6 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         //FIRMessaging.messaging().
         
         print("---------->>>>>>",Messaging.messaging().fcmToken)
+        DataHolder.sharedInstance.tokenUser=Messaging.messaging().fcmToken
         
         
         return true
