@@ -70,6 +70,7 @@ class VCLogIn: UIViewController, GIDSignInUIDelegate,DataHolderDelegate {
             //let username = value?["username"] as? String ?? ""
             //let user = User.init(username: username)
             print("USER ID: ",userID)
+            DataHolder.sharedInstance.userID = userID
             
             if(snapshot.exists()){
                 DataHolder.sharedInstance.miPerflie = Profile(valores: snapshot.value as! [String : Any])

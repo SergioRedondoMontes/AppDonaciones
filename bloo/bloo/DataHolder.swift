@@ -7,14 +7,15 @@
 //
 
 import UIKit
-import  Firebase
+import Firebase
 import FirebaseStorage
+import GeoFire
 
 class DataHolder: NSObject {
     
     var tokenUser:String?
     var googleMail:String?
-    
+    var userID:String?
     var delegate:DataHolderDelegate?
     
     static let sharedInstance:DataHolder=DataHolder()
@@ -22,6 +23,9 @@ class DataHolder: NSObject {
     var firDataBaseRef: DatabaseReference!
     
     var miPerflie:Profile?
+    
+    var geoFireRef:DatabaseReference?
+    var geoFire:GeoFire?
     
     func initFireBase(){
         FirebaseApp.configure()
@@ -33,13 +37,9 @@ class DataHolder: NSObject {
                 DataHolder.sharedInstance.userAuth=user
                 print("USER LOGEADO CON",user.email!)
                 self.delegate?.DataHolderUserLogIn(user: user)
-                //FIRAuth.auth()?.signOut()
-                /*do {
-                    try
-                        FIRAuth.auth()?.signOut()
-                } catch let signOutError as NSError {
-                    print ("Error signing out: %@", signOutError)
-                }*/
+                
+                self.geoFireRef = Database.database().reference().child("geolocs")
+                self.geoFire = GeoFire(firebaseRef: self.geoFireRef)
             } else {
                 // No user is signed in.
             }
