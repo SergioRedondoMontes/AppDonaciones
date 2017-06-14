@@ -41,10 +41,9 @@ class VCAdmin: UIViewController {
             try
                 firebaseAuth.signOut()
             GIDSignIn.sharedInstance().signOut()
-            // falta hacer la tansicion !!!!!! IMPORTANTE!!!!!!!!!!
             performSegue(withIdentifier: "transitionLogOutAdmin", sender: self)
         } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
+           //Error signing out: %@", signOutError
         }
         
     }

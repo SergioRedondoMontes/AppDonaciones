@@ -16,16 +16,16 @@ class DataHolder: NSObject {
     var tokenUser:String?
     var googleMail:String?
     var userID:String?
+    
     var delegate:DataHolderDelegate?
     
     static let sharedInstance:DataHolder=DataHolder()
     var userAuth:User?
     var firDataBaseRef: DatabaseReference!
-    
-    var miPerflie:Profile?
-    
     var geoFireRef:DatabaseReference?
     var geoFire:GeoFire?
+    
+    var miPerflie:Profile?
     
     func initFireBase(){
         FirebaseApp.configure()
@@ -35,9 +35,7 @@ class DataHolder: NSObject {
             if let user = user {
                 // User is signed in.
                 DataHolder.sharedInstance.userAuth=user
-                print("USER LOGEADO CON",user.email!)
                 self.delegate?.DataHolderUserLogIn(user: user)
-                
                 self.geoFireRef = Database.database().reference().child("geolocs")
                 self.geoFire = GeoFire(firebaseRef: self.geoFireRef)
             } else {

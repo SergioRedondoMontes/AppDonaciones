@@ -17,7 +17,6 @@ class VCConfig: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -35,7 +34,6 @@ class VCConfig: UIViewController {
             try
                 firebaseAuth.signOut()
             GIDSignIn.sharedInstance().signOut()
-            // falta hacer la tansicion !!!!!! IMPORTANTE!!!!!!!!!!
             performSegue(withIdentifier: "transitionLogOut", sender: self)
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)

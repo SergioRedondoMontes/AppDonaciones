@@ -10,10 +10,12 @@ import UIKit
 
 class Profile: NSObject {
     
+    
     var tokenPush:String?
     var email:String?
     var age:Int?
     var rol:String?
+    
     
     init(valores:[String:Any]) {
         tokenPush = valores["tokenPush"] as? String

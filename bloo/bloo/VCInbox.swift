@@ -14,6 +14,9 @@ class VCInbox: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    //Under construction
+    
       let lat:CLLocationDegrees = 40.538629
         let lon:CLLocationDegrees = -3.893751
       let myLocation:CLLocation = CLLocation (latitude: lat, longitude: lon)

@@ -50,10 +50,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         //Google
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
-
-        //FIRMessaging.messaging().
         
-        print("---------->>>>>>",Messaging.messaging().fcmToken)
+        
+        //add notification tokenUser to DataHolder
         DataHolder.sharedInstance.tokenUser=Messaging.messaging().fcmToken
         
         
@@ -64,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         print("Firebase registration token: \(fcmToken)")
     }
     
-    //PRUEBAS
+    
     func initNotificationSetupCheck() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert])
         { (success, error) in
@@ -77,11 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     }
     
     
-    
-    
-    
-    
-    // HASTA AQUI
+
     
     func application(received remoteMessage: MessagingRemoteMessage) {
         print("-------------------->",remoteMessage.appData)
@@ -96,16 +91,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         // TODO: Handle data of notification
         // Print message ID.
         
-        print("AAAAAAAAAAAAAAAAAAAAAA ",userInfo)
-        
+        /*SI FUNCIONA BORRAR
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
         
+        
         // Print full message.
         print(userInfo)
         
-        
+        */
     }
     // [END receive_message]
     
@@ -114,11 +109,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
 
     
     
-    //Funcion de google
+    //Google sign in
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
-        print("GOOGLE LOGEADO AHORA PASO A LOGEARME EN FIREBASE!!! ")
+        //GOOGLE LOGEADO AHORA PASO A LOGEARME EN FIREBASE!!!
         
         if let error = error {
             print("ERROR!!! ",error)
@@ -138,8 +133,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                 
             }
             DataHolder.sharedInstance.googleMail=user?.email!
-            print("++++++++++++++++++++++++++++++++++++++", user?.email!)
-            print("ESTOY LOGEADO!!!!")
+            
+            //ESTOY LOGEADO!!!
         })
     }
     
@@ -174,14 +169,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    /*
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data){
-        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
-        print(deviceTokenString)
-        DataHolder.sharedInstance.tokenUser=deviceTokenString
-    }*/
-    
-
 
 }
 

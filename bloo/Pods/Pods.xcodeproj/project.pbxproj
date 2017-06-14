@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01A0B8DF1EEE7DC400C199B3 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A763FB8FF0BEA72CBCFB2C2A3008DE /* FirebaseDatabase.framework */; };
-		01A0B8E01EEE7DCE00C199B3 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A763FB8FF0BEA72CBCFB2C2A3008DE /* FirebaseDatabase.framework */; };
 		03CD0F0AB54C9AF48BFD7345A8BC03F2 /* Pods-blooUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0B96CAACEE9F322557E6DEC2D0A7A /* Pods-blooUITests-dummy.m */; };
 		044C76E94FDB496639F5EB60103C4D64 /* GoogleToolboxForMac-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EF297CA9310A384A0DF881A43C99FFC0 /* GoogleToolboxForMac-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0716FD91CA970FE90BB11BED6060B6F1 /* GPBUnknownFieldSet_PackagePrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 10479FAF791D4BA96F72FB15192EA61F /* GPBUnknownFieldSet_PackagePrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -114,6 +112,8 @@
 		B471A39A965390029CB2B9381A6CDB51 /* Any.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = CCF0999A68B32E6F60B288C899C9C026 /* Any.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B73A419BA20F2F07A61FE4B0B5192377 /* GTMSessionFetcherService.h in Headers */ = {isa = PBXBuildFile; fileRef = 36D488D6D2F14EDC733F56D7630F3D87 /* GTMSessionFetcherService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B80C92F5AA8268B033ED912BA779375B /* GTMNSString+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5F3FD6D62ACE6B2216B5D4E906F6DE /* GTMNSString+URLArguments.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BA62688A1EF1812D005A58E9 /* Firebase.h in Headers */ = {isa = PBXBuildFile; fileRef = F1A8B3736D7B52EA5E01ABBE98337C18 /* Firebase.h */; };
+		BA62688B1EF18130005A58E9 /* Firebase.h in Headers */ = {isa = PBXBuildFile; fileRef = F1A8B3736D7B52EA5E01ABBE98337C18 /* Firebase.h */; };
 		BA7F6EAA26CF9D5C1BCA6FCC5F22BD7E /* GTMSessionUploadFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7924C5A672477226707E35282C0129AB /* GTMSessionUploadFetcher.m */; };
 		BAFBC127628011F944DBB4D07080AFFF /* Timestamp.pbobjc.h in Headers */ = {isa = PBXBuildFile; fileRef = 456D9E18FDB586755D2F5140F79EC0DE /* Timestamp.pbobjc.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD0A81E5024A2D2923A85A6D8AD70E1A /* GTMNSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = DE8ADABCAB8D17B91C2D4F4D72F6AB2D /* GTMNSData+zlib.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -435,7 +435,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01A0B8DF1EEE7DC400C199B3 /* FirebaseDatabase.framework in Frameworks */,
 				1FA375816005BD73DC57C12C9D40E516 /* CoreLocation.framework in Frameworks */,
 				A83EEEDEDD3140EE175D2C85B3689135 /* Foundation.framework in Frameworks */,
 				735B1005CF6967A0B2224C691D8DAB4F /* GoogleToolboxForMac.framework in Frameworks */,
@@ -446,7 +445,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01A0B8E01EEE7DCE00C199B3 /* FirebaseDatabase.framework in Frameworks */,
 				AAF6062ED36F72042008ABBFF91A050D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1096,6 +1094,7 @@
 				516ABC2F90807B09194C6AD9D6FB46C3 /* GTMDebugThreadValidation.h in Headers */,
 				AB4642ACC86AC29A3D2F85B74328F20D /* GTMDefines.h in Headers */,
 				0A3E3FD1FA4825426C8C4E192383E33F /* GTMLogger.h in Headers */,
+				BA62688B1EF18130005A58E9 /* Firebase.h in Headers */,
 				7F4D88FE2C22200B0387C46B79E8F9FC /* GTMMethodCheck.h in Headers */,
 				21BA12806F62C44D6C3440535100719D /* GTMNSData+zlib.h in Headers */,
 				338D57F32361B369F0BD9B196EB4B988 /* GTMNSDictionary+URLArguments.h in Headers */,
@@ -1152,6 +1151,7 @@
 				AA9B66CF625E7C0E2AD2706BF0F7E221 /* GFBase32Utils.h in Headers */,
 				F2A7136510F3006882EF022816FE68FE /* GFCircleQuery.h in Headers */,
 				5D43E101F8087CE92DF6269342464D44 /* GFGeoHash.h in Headers */,
+				BA62688A1EF1812D005A58E9 /* Firebase.h in Headers */,
 				D543007E663DC2986D04734C9F0086F7 /* GFGeoHashQuery.h in Headers */,
 				FBFC50E331F289CEA912FEB48516CE6F /* GFQuery+Private.h in Headers */,
 				92717B61DDABE582BF774F6CDCFA90CC /* GFQuery.h in Headers */,
@@ -1638,10 +1638,6 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/FirebaseDatabase/Frameworks",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/GeoFire/GeoFire-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/GeoFire/Info.plist";
@@ -1709,10 +1705,6 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/FirebaseDatabase/Frameworks",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/GoogleToolboxForMac/Info.plist";
@@ -2016,10 +2008,6 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/FirebaseDatabase/Frameworks",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/GeoFire/GeoFire-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/GeoFire/Info.plist";
@@ -2096,10 +2084,6 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/FirebaseDatabase/Frameworks",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/GoogleToolboxForMac/Info.plist";

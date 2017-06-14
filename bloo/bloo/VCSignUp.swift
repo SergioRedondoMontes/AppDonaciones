@@ -36,15 +36,14 @@ class VCSignUp: UIViewController,UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-// Metodo para el boton registrar
-    
+//function sign up
     
     @IBAction func btnSignUp() {
-        // Creacion de usuario en FireBase
+        //create new profile into authentication
         Auth.auth().createUser(withEmail: (txtfRegMail?.text)!, password: (txtfRegPass?.text)! ) { (user, error) in
             
             if(error == nil){
-                
+                //create new profile firebase database
                 Database.database().reference().child("profiles").child((user?.uid)!).child("mail").setValue(user?.email)
                 Database.database().reference().child("profiles").child((user?.uid)!).child("age").setValue("0")
                 //adminRol = 1; userRol = 0;
@@ -52,7 +51,7 @@ class VCSignUp: UIViewController,UITextFieldDelegate {
                 DataHolder.sharedInstance.miPerflie?.tokenPush = DataHolder.sharedInstance.tokenUser
                 
                 if(DataHolder.sharedInstance.miPerflie?.tokenPush==nil){
-                    
+                
                     
                 }
                 else{
@@ -64,7 +63,7 @@ class VCSignUp: UIViewController,UITextFieldDelegate {
                 
                 
             }else{
-            // Aqui va un error :D
+            //Label error
             }
             
       
@@ -72,7 +71,7 @@ class VCSignUp: UIViewController,UITextFieldDelegate {
         
         
     }
-    
+    //Animation age
     func textFieldDidBeginEditing(_ textField: UITextField) {
         viewAger?.frame = estado1!
         UIView.animate(withDuration: 0.4, delay: 0.05, options: UIViewAnimationOptions.curveEaseIn, animations:{ () -> Void in

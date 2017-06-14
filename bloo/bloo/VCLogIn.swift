@@ -23,12 +23,8 @@ class VCLogIn: UIViewController, GIDSignInUIDelegate,DataHolderDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         GIDSignIn.sharedInstance().uiDelegate = self
-       
         DataHolder.sharedInstance.delegate=self
-        
-        
-        
-        
+ 
         
     }
 
@@ -41,16 +37,15 @@ class VCLogIn: UIViewController, GIDSignInUIDelegate,DataHolderDelegate {
     
     @IBAction func btnLogIn() {
        
-        // Inicio de sesion en FireBase
+        //FireBase sign in
         Auth.auth().signIn(withEmail: (txtfMail?.text)!, password: (txtfPass?.text)!) { (user, error) in
             
             if(error == nil){
                 
                   self.loadProfile(userID: (user?.uid)!)
-                //self.performSegue(withIdentifier: "transitionLogIn", sender: self)
                 
             }else{
-                // Aqui va un error :D
+                //Label error
             }
             
             
@@ -58,25 +53,18 @@ class VCLogIn: UIViewController, GIDSignInUIDelegate,DataHolderDelegate {
     }
     
     func DataHolderUserLogIn(user: User) {
-        //self.performSegue(withIdentifier: "transitionLogIn", sender: self)
         self.loadProfile(userID: (user.uid))
     }
     
     func loadProfile(userID:String)  {
         
         DataHolder.sharedInstance.firDataBaseRef.child("profiles").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            //let value = snapshot.value as? NSDictionary
-            //let username = value?["username"] as? String ?? ""
-            //let user = User.init(username: username)
-            print("USER ID: ",userID)
             DataHolder.sharedInstance.userID = userID
             
             if(snapshot.exists()){
                 DataHolder.sharedInstance.miPerflie = Profile(valores: snapshot.value as! [String : Any])
                 
                 if(DataHolder.sharedInstance.miPerflie?.tokenPush==nil){
-                    //print("************************************************************INSERT!!! ",DataHolder.sharedInstance.miPerflie?.tokenPush!)
                     DataHolder.sharedInstance.miPerflie?.tokenPush = DataHolder.sharedInstance.tokenUser
                     
                     if(DataHolder.sharedInstance.miPerflie?.tokenPush==nil){
@@ -92,17 +80,16 @@ class VCLogIn: UIViewController, GIDSignInUIDelegate,DataHolderDelegate {
                     DataHolder.sharedInstance.firDataBaseRef.child("profiles").child(userID).child("tokenPush").setValue(DataHolder.sharedInstance.miPerflie?.tokenPush)
                 }
                 if(DataHolder.sharedInstance.miPerflie?.rol == "1"){
-                    print("++++++++++++++++++++++ADMIN++++++++++++++")
+                    //1 Admin, 0 user
                     self.performSegue(withIdentifier: "transitionAdmin", sender: self)
                  }else{
                     self.performSegue(withIdentifier: "transitionLogIn", sender: self)
                  }
                 
-                print("-------------------",DataHolder.sharedInstance.miPerflie?.rol!)
                 
             }
             else{
-                //CREAMOS EL PERFIL !!!!!
+                //create profile
                 let googleMail = DataHolder.sharedInstance.googleMail
                 Database.database().reference().child("profiles").child(userID).child("mail").setValue(googleMail)
                 Database.database().reference().child("profiles").child(userID).child("age").setValue("0")
