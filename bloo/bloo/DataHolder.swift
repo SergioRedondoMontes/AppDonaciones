@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseStorage
-import GeoFire
+//import GeoFire
 
 class DataHolder: NSObject {
     
@@ -22,8 +22,8 @@ class DataHolder: NSObject {
     static let sharedInstance:DataHolder=DataHolder()
     var userAuth:User?
     var firDataBaseRef: DatabaseReference!
-    var geoFireRef:DatabaseReference?
-    var geoFire:GeoFire?
+//    var geoFireRef:DatabaseReference?
+//    var geoFire:GeoFire?
     
     var miPerflie:Profile?
     
@@ -36,8 +36,8 @@ class DataHolder: NSObject {
                 // User is signed in.
                 DataHolder.sharedInstance.userAuth=user
                 self.delegate?.DataHolderUserLogIn(user: user)
-                self.geoFireRef = Database.database().reference().child("geolocs")
-                self.geoFire = GeoFire(firebaseRef: self.geoFireRef)
+//                self.geoFireRef = Database.database().reference().child("geolocs")
+//                self.geoFire = GeoFire(firebaseRef: self.geoFireRef)
             } else {
                 // No user is signed in.
             }
