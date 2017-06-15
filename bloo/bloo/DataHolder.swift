@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseStorage
-//import GeoFire
+import GeoFire
 
 class DataHolder: NSObject {
     
@@ -22,8 +22,8 @@ class DataHolder: NSObject {
     static let sharedInstance:DataHolder=DataHolder()
     var userAuth:User?
     var firDataBaseRef: DatabaseReference!
-//    var geoFireRef:DatabaseReference?
-//    var geoFire:GeoFire?
+    var geoFireRef:DatabaseReference?
+    var geoFire:GeoFire?
     
     var miPerflie:Profile?
     

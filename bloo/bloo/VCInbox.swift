@@ -15,15 +15,15 @@ class VCInbox: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    /*
-                Under construction
+    
+  //              Under construction
     
       let lat:CLLocationDegrees = 40.538629
         let lon:CLLocationDegrees = -3.893751
       let myLocation:CLLocation = CLLocation (latitude: lat, longitude: lon)
         
        DataHolder.sharedInstance.geoFire?.setLocation(myLocation, forKey: DataHolder.sharedInstance.userID)
- */
+ 
         
 //        let lat2:CLLocationDegrees = 40.538629
 //        let lon2:CLLocationDegrees = -3.893751
